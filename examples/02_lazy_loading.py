@@ -41,3 +41,5 @@ with tf.Session() as sess:
 		sess.run(tf.add(x, y))
 	print(tf.get_default_graph().as_graph_def()) 
 	writer.close()
+
+# moha
