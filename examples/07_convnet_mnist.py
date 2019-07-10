@@ -12,6 +12,7 @@ import time
 import tensorflow as tf
 
 import utils
+import glob
 
 def conv_relu(inputs, filters, k_size, stride, padding, scope_name):
     '''
@@ -50,6 +51,11 @@ def fully_connected(inputs, out_dim, scope_name='fc'):
         out = tf.matmul(inputs, w) + b
     return out
 
+
+def read_data(data_folder):
+    file_names = glob.glob(data_folder)
+    train_data = [np.load(x)for x in file_names]
+    
 class ConvNet(object):
     def __init__(self):
         self.lr = 0.001
